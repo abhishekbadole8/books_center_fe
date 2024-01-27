@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
@@ -7,12 +6,9 @@ const Books_API = "https://books-center.onrender.com/api/books";
 const App = () => {
   const [books, setBooks] = useState([]);
   const [newBook, setNewBook] = useState({ title: "", author: "", year: "" });
-  const [editBook, setEditBook] = useState(null);
+  const [editBook, setEditBook] = useState(null); // book-id save here
 
-  useEffect(() => {
-    fetchBooks();
-  }, []);
-
+  // fetching all books
   const fetchBooks = async () => {
     try {
       const response = await fetch(Books_API);
@@ -22,7 +18,7 @@ const App = () => {
       }
     } catch (error) {
       console.error("Error fetching books:", error);
-    } 
+    }
   };
 
   const handleInputChange = (e) => {
@@ -41,7 +37,6 @@ const App = () => {
 
   const addBook = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch(Books_API, {
         method: "POST",
@@ -57,11 +52,7 @@ const App = () => {
       }
     } catch (error) {
       console.error("Error adding book:", error);
-    } 
-  };
-
-  const startEdit = (bookId) => {
-    setEditBook(bookId);
+    }
   };
 
   const cancelEdit = () => {
@@ -100,6 +91,10 @@ const App = () => {
       console.error("Error deleting book:", error);
     }
   };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   return (
     <div className="container">
@@ -188,7 +183,7 @@ const App = () => {
                 </div>
 
                 <div className="card-actions">
-                  <button onClick={() => startEdit(book._id)}>Edit</button>
+                  <button onClick={() => setEditBook(book._id)}>Edit</button>
                   <button onClick={() => deleteBook(book._id)}>Delete</button>
                 </div>
               </div>

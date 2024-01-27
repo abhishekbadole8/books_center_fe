@@ -1,0 +1,112 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+}
+
+form {
+  display: flex;
+  gap: .75rem;
+  margin-bottom: 3.5rem;
+}
+
+form label {
+  font-size: 1rem;
+}
+
+form input {
+  height: 85%;
+  margin-left: .5rem;
+}
+
+/* ------------------- */
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding-left: 0;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  position: relative;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card-inside {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  margin-bottom: 10px;
+}
+
+.author {
+  font-style: italic;
+  color: #555;
+}
+
+.card-actions {
+  display: flex;
+  gap: .5rem;
+}
+
+.card-actions button {
+  width: 4.5rem;
+}
+
+button {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: .9rem;
+}
+
+button:hover {
+  background-color: #1565c0;
+}
+
+.delete-btn {
+  background-color: #e53935;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+}
+
+.loading-btn {
+  position: relative;
+}
+
+.loading-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.card-inside-edit {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.card-inside-edit div {
+  display: flex;
+  justify-content: space-between;
+}
